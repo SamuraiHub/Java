@@ -1,0 +1,9 @@
+package week2
+import org.scalatest.FunSuite
+
+/**
+  * Created by Muaz Aljarhi on 1/28/2017.
+  */
+class Hello extends app {
+  def main(args: Array[String]) = println("hello world!")
+}

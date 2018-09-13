@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module codename="WEC">
+    <module_version install_time="1319226074906" last="true" origin="installer" specification_version="1.0">
+        <file crc="3550407163" name="config/Modules/WEC.xml"/>
+        <file crc="4042590017" name="modules/WEC.jar"/>
+    </module_version>
+</module>

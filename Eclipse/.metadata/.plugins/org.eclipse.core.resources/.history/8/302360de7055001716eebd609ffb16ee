@@ -1,0 +1,16 @@
+class Ride_Distance{
+    
+    protected flight_cost(int city, int cost) {
+        this.city = city;
+        this.cost = cost;
+    }
+
+    protected  int city;
+    protected int cost;
+    
+    @Override
+    public String toString()
+    {
+     return city+";"+cost;   
+    }
+}

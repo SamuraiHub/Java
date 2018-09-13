@@ -1,0 +1,69 @@
+/** A class that implements a directed map graph. 
+ * The graph may have self-loops, parallel edges. 
+ * Vertices are GeographicPoints which are
+ * also labeled by integers 0 .. n-1.
+ * The edges of the graph are labeled by the road name, 
+ * road type and length of the road.
+ * Representation of edges via adjacency lists.
+ * 
+ * @author Muaz Aljarhi
+ *
+ */
+ package roadgraph;
+
+import java.util.ArrayList;
+
+class MapGraphAdjList
+{
+ 
+	private ArrayList<ArrayList<Integer>> adjListsMap; // mapping between vertices
+	private  ArrayList<ArrayList<String>> adjListsLabels; // string labels of the corresponding edges (road name, road type)
+	private  ArrayList<ArrayList<Integer>> adjListsLengths; // lengths of the corresponding edges (of roads, in km)
+	private int numEdges; // number of edges in the graph
+ 
+	protected MapGraphAdjList()
+	{
+		adjListsMap = new ArrayList<>();
+		adjListsLabels = new ArrayList<>();
+		adjListsLengths = new ArrayList<>();
+	}
+	
+	/**
+	 * Report the size of vertex (road intersections) set
+	 * @return The number of vertices (road intersections) in the graph.
+	 */
+	protected int getNumVertices() {
+		return adjListsMap.size();
+	}
+	
+	
+	/**
+	 * Add a new vertex to the graph. This vertex will
+	 * have as its index the next available integer.
+	 * the next available integer will also correspond
+	 * to the value of this vertex
+	 */
+	protected void addVertex() {
+		
+		adjListsMap.add(new ArrayList<Integer>());
+		adjListsLabels.add(new ArrayList<String>());
+		adjListsLengths.add(new ArrayList<Integer>());
+	}
+	
+	
+	/**
+	 * Add new edge to the graph between given vertices,
+	 * @param v Index of the start point of the edge to be added. 
+	 * @param w Index of the end point of the edge to be added.
+	 * @param label label of the edge
+	 * @param length length of the edge 
+	 */
+	protected void addEdge(int v , int w, String label, int length) 
+	{
+			adjListsMap.get(v).add(w);
+			adjListsLabels.get(v).add(label);
+			adjListsLengths.get(v).add(length);
+	}
+	
+
+}

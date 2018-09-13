@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module codename="org.word.editor.uppercase">
+    <module_version install_time="1319226075843" last="true" origin="installer" specification_version="1.0">
+        <file crc="1056040498" name="config/Modules/org-word-editor-uppercase.xml"/>
+        <file crc="3507236814" name="modules/org-word-editor-uppercase.jar"/>
+    </module_version>
+</module>

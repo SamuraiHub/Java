@@ -1,0 +1,94 @@
+/** A class that implements a directed map graph. 
+ * The graph may have self-loops, parallel edges. 
+ * Vertices are GeographicPoints which are
+ * also labeled by integers 0 .. n-1.
+ * The edges of the graph are labeled by the road name, 
+ * road type and length of the road.
+ * Representation of edges via adjacency lists.
+ * 
+ * @author Muaz Aljarhi
+ *
+ */
+ package roadgraph;
+
+import java.util.ArrayList;
+
+class MapGraphAdjList
+{
+ 
+	private ArrayList<ArrayList<Integer>> adjListsMap; // mapping between vertices
+	private  ArrayList<ArrayList<String>> adjListLabels; // string labels of the corresponding edges (road name, road type)
+	private  ArrayList<ArrayList<Integer>> adjListLengths; // lengths of the corresponding edges (of roads, in km)
+ 
+	protected MapGraphAdjList()
+	{
+		adjListsMap = new ArrayList<>();
+		adjListLabels = new ArrayList<>();
+		adjListLengths = new ArrayList<>();
+	}
+	
+	/**
+	 * Report the size of vertex (road intersections) set
+	 * @return The number of vertices (road intersections) in the graph.
+	 */
+	public int getNumVertices() {
+		return adjListsMap.size();
+	}
+	
+	
+	
+	/**
+	 * Add new vertex to the graph.  This vertex will
+	 * have as its index the next available integer.
+	 * Precondition: contiguous integers are used to 
+	 * index vertices.
+	 * @return index of newly added vertex
+	 */
+	public int addVertex() {
+		implementAddVertex();
+		numVertices ++;
+		return (numVertices-1);
+	}
+	
+	/**
+	 * Abstract method implementing adding a new
+	 * vertex to the representation of the graph.
+	 */
+	public abstract void implementAddVertex();
+	
+	/**
+	 * Add new edge to the graph between given vertices,
+	 * @param v Index of the start point of the edge to be added. 
+	 * @param w Index of the end point of the edge to be added. 
+	 */
+	public void addEdge(int v , int w) {
+		numEdges ++;
+		if (v < numVertices && w < numVertices) {
+			implementAddEdge(v , w);			
+		}
+		else {
+			throw new IndexOutOfBoundsException();
+		}
+	}
+	
+	
+	
+	/** 
+	 * Implement the abstract method for adding a vertex. 
+	 */
+	public void implementAddVertex() {
+		ArrayList<Integer> neighbors = new ArrayList<Integer>();
+		adjListsMap.add(neighbors);
+	}
+	
+	/** 
+	 * Implement the abstract method for adding an edge.
+	 * @param v the index of the start point for the edge.
+	 * @param w the index of the end point for the edge.  
+	 */
+	public void implementAddEdge(int v, int w) {
+		(adjListsMap.get(v)).add(w);
+
+	}
+
+}

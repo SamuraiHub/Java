@@ -1,0 +1,19 @@
+
+package roadgraph;
+
+class Ride_Distance{
+    
+    protected Ride_Distance(int position, double distance) {
+        this.position = position;
+        this.distance = distance;
+    }
+
+    protected  int position;
+    protected double distance;
+    
+    @Override
+    public String toString()
+    {
+     return position+";"+distance;   
+    }
+}
